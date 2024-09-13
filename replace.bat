@@ -23,18 +23,18 @@ if not exist "%LATEST_VERSION_DIR%" (
 )
 
 set "FONT_DIR=%LATEST_VERSION_DIR%\content\fonts"
-set "COMIC_NEUE_FILE=%FONT_DIR%\ComicNeue-Angular-Bold.ttf"
-set "BACKUP_FILE=%COMIC_NEUE_FILE%%BACKUP_FILE_SUFFIX%"
+set "FONT_FILE=%FONT_DIR%\PressStart2P-Regular.ttf"
+set "BACKUP_FILE=%FONT_FILE%%BACKUP_FILE_SUFFIX%"
 
-if exist "%COMIC_NEUE_FILE%" (
+if exist "%FONT_FILE%" (
     echo Backing up original font...
-    copy /y "%COMIC_NEUE_FILE%" "%BACKUP_FILE%"
+    copy /y "%FONT_FILE%" "%BACKUP_FILE%"
 ) else (
-    echo ComicNeue-Angular-Bold.ttf not found.
+    echo PressStart2P-Regular.ttf not found.
 )
 
 echo Replacing font...
-copy /y "%TEMP_FONT_FILE%" "%COMIC_NEUE_FILE%"
+copy /y "%TEMP_FONT_FILE%" "%FONT_FILE%"
 
 echo Cleaning up...
 del /q "%TEMP_FONT_FILE%"
